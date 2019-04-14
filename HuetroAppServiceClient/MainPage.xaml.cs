@@ -126,7 +126,7 @@ namespace HuetroAppServiceClient
 
             List<string> LightIDs = new List<string>();
             foreach (KeyValuePair<string, object> x in LightsView.SelectedItems)
-            { 
+            {  
                 LightIDs.Add(x.Key);
             }
             Message.Add("LightIDs", ObjectToValue(LightIDs));
