@@ -27,7 +27,7 @@
             <Button x:Name="TurnBlueBtn" Content="Turn Blue" Margin="24,0,0,0" Click="TurnBlueBtn_Click" />
             <Button x:Name="DimBtn" Content="Dim" Margin="24,0,0,0" Click="DimBtn_Click" />
         </StackPanel>
-        <ListView x:Name="LightsView" Grid.Row="2" SelectionMode="Multiple">
+        <ListView x:Name="LightsView" Grid.Row="2" SelectionMode="Multiple" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Visible">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
