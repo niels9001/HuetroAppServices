@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="HuetroAppServiceClient.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HuetroAppServiceClient"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" RequestedTheme="Dark"
+    Background="#0f0f0f">
+
+    <Grid Margin="24" RowSpacing="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="48" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="320"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Hello Huetro :)" FontSize="48" FontWeight="Bold"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="ConnectBtn" Content="Connect to Huetro" Click="ConnectBtn_Click" />
+            <Button x:Name="LightsBtn" IsEnabled="False" Content="Get lights" Click="LightsBtn_Click" Margin="24,0,0,0" />
+        </StackPanel>
+        <StackPanel x:Name="LightControlPanel" Visibility="Collapsed" Grid.Row="1" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="TurnOnBtn" Content="Turn on" Click="TurnOnBtn_Click" />
+            <Button x:Name="TurnOffBtn" Content="Turn off" Margin="24,0,0,0" Click="TurnOffBtn_Click" />
+            <Button x:Name="TurnRedBtn" Content="Turn Red" Margin="24,0,0,0" Click="TurnRedBtn_Click" />
+            <Button x:Name="TurnBlueBtn" Content="Turn Blue" Margin="24,0,0,0" Click="TurnBlueBtn_Click" />
+            <Button x:Name="DimBtn" Content="Dim" Margin="24,0,0,0" Click="DimBtn_Click" />
+        </StackPanel>
+        <ListView x:Name="LightsView" Grid.Row="2" SelectionMode="Multiple">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Path=Key}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Path=Value}" Grid.Column="1"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
