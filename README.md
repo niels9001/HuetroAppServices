@@ -14,7 +14,7 @@ Before you can send LightCommands to Huetro, a connection need to be opened. you
   huetroService.AppServiceName = "com.huetro.appservice";
   huetroService.PackageFamilyName = "27078NielsLaute.HuetroforHue_91se88q2mhfz2";
   
-  await this.huetroService.OpenAsync();
+  await huetroService.OpenAsync();
 ```
 	
 
