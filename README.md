@@ -38,22 +38,22 @@ To send light commands, we'll have to use the same ValueSet objects to communica
 
 Turning on a blue light:
 ```cs
-	//Turn the light on and set the color to Blue
-  new LightCommand().TurnOn().SetColor(new RGBColor(0, 0, 255));
+//Turn the light on and set the color to Blue
+new LightCommand().TurnOn().SetColor(new RGBColor(0, 0, 255));
 ```
 
 Set color or brightness
 ```cs
-	//Turn light red
-  new LightCommand().SetColor(new RGBColor("ff0000"));
+//Turn light red
+new LightCommand().SetColor(new RGBColor("ff0000"));
 	
-	//Turn the light to full Brightness (0-255)
-  new LightCommand() { Brightness = 255 }
+//Turn the light to full Brightness (0-255)
+new LightCommand() { Brightness = 255 }
 ```
 
 Turn off (with a transition time of 3 seconds)
 ```cs
-   new LightCommand() { On = false, TransitionTime = new TimeSpan(0, 0, 3));
+new LightCommand() { On = false, TransitionTime = new TimeSpan(0, 0, 3));
 ```
 
 
@@ -62,11 +62,11 @@ Once you have this LightCommand we need to serialize it (since AppService commun
 
 
 ```cs
-  ValueSet Message = new ValueSet();
-  Message.Add("Command", "SendLightCommand");
-  Message.Add("LightCommand", JsonConvert.SerializeObject(new LightCommand().TurnOn(), Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
-  Message.Add("LightIDs", JsonConvert.SerializeObject(new List<string>() { "1", "2" }, Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
-  AppServiceResponse response = await huetroService.SendMessageAsync(Message);
+ValueSet Message = new ValueSet();
+Message.Add("Command", "SendLightCommand");
+Message.Add("LightCommand", JsonConvert.SerializeObject(new LightCommand().TurnOn(), Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
+Message.Add("LightIDs", JsonConvert.SerializeObject(new List<string>() { "1", "2" }, Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
+AppServiceResponse response = await huetroService.SendMessageAsync(Message);
 ```
 
 
